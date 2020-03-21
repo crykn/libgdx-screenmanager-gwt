@@ -1,0 +1,37 @@
+apply plugin: "java-library"
+apply plugin: "eclipse"
+apply plugin: "idea"
+apply plugin: "maven"
+
+version '0.5.0'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+	maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+	jcenter()
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = "sources"
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+ext {
+	gdxVersion = "1.9.10"
+}
+
+dependencies {
+	implementation "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
+}
+
+tasks.eclipse.doLast {
+    delete ".project"
+}
