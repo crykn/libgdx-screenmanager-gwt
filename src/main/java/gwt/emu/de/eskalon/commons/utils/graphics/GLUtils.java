@@ -37,8 +37,9 @@ public class GLUtils {
 	 * The buffer used internally. A size of 64 bytes is required as at most 16
 	 * integer elements can be returned.
 	 */
-	private static final IntBuffer USED_INT_BUFF = ByteBuffer.allocateDirect(16 * Integer.BYTES)
-			.order(ByteOrder.nativeOrder()).asIntBuffer();
+	private static final IntBuffer USED_INT_BUFF = ByteBuffer
+			.allocateDirect(16 * Integer.BYTES).order(ByteOrder.nativeOrder())
+			.asIntBuffer();
 
 	/**
 	 * Returns the name of the currently bound framebuffer.
@@ -53,7 +54,8 @@ public class GLUtils {
 		GwtGraphics graphics = (GwtGraphics) Gdx.graphics;
 		GwtGL20 gwtGl = (GwtGL20) graphics.getGL20();
 		WebGLRenderingContext glContext = graphics.getContext();
-		WebGLFramebuffer frameBuffer = glContext.getParametero(WebGLRenderingContext.FRAMEBUFFER_BINDING);
+		WebGLFramebuffer frameBuffer = glContext
+				.getParametero(WebGLRenderingContext.FRAMEBUFFER_BINDING);
 
 		if (frameBuffer == null) {
 			return 0;
@@ -62,7 +64,8 @@ public class GLUtils {
 		}
 	}
 
-	private static native int getFrameBufferId(GwtGL20 gwtGl, WebGLFramebuffer frameBuffer)
+	private static native int getFrameBufferId(GwtGL20 gwtGl,
+			WebGLFramebuffer frameBuffer)
 	/*-{
 	// Access GwtGL20#frameBuffers field.
 	var frameBuffers = gwtGl.@com.badlogic.gdx.backends.gwt.GwtGL20::frameBuffers;
@@ -82,15 +85,16 @@ public class GLUtils {
 	}-*/;
 
 	/**
-	 * @return the current gl viewport ({@code GL_VIEWPORT}) as an array, containing
-	 *         four values: the x and y window coordinates of the viewport, followed
-	 *         by its width and height.
+	 * @return the current gl viewport ({@code GL_VIEWPORT}) as an array,
+	 *         containing four values: the x and y window coordinates of the
+	 *         viewport, followed by its width and height.
 	 */
 	public static synchronized int[] getViewport() {
 		IntBuffer intBuf = USED_INT_BUFF;
 		Gdx.gl.glGetIntegerv(GL20.GL_VIEWPORT, intBuf);
 
-		return new int[] { intBuf.get(0), intBuf.get(1), intBuf.get(2), intBuf.get(3) };
+		return new int[] { intBuf.get(0), intBuf.get(1), intBuf.get(2),
+				intBuf.get(3) };
 	}
 
 }
