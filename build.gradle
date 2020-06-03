@@ -26,10 +26,14 @@ artifacts {
 
 ext {
 	gdxVersion = "1.9.10"
+	guacamoleVersion = "d4cefd1"
 }
 
 dependencies {
 	implementation "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
+	api 'com.github.crykn.guacamole:gdx:X.Y.Z:sources'
+    api 'com.github.crykn.guacamole:gdx-gwt:X.Y.Z'
+    api 'com.github.crykn.guacamole:gdx-gwt:X.Y.Z:sources'
 }
 
 tasks.eclipse.doLast {
