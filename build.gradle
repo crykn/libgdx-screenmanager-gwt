@@ -3,7 +3,7 @@ apply plugin: "eclipse"
 apply plugin: "idea"
 apply plugin: "maven"
 
-version '0.6.0'
+version '0.6.1'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -26,8 +26,8 @@ artifacts {
 }
 
 ext {
-	gdxVersion = "1.9.10"
-	guacamoleVersion = "38cfa12bca" // = 0.2.0
+	gdxVersion = "1.9.11"
+	guacamoleVersion = "v0.2.0"
 }
 
 dependencies {
