@@ -3,7 +3,7 @@ apply plugin: "eclipse"
 apply plugin: "idea"
 apply plugin: "maven"
 
-version '0.6.5'
+version '0.6.6'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
