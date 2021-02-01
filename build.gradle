@@ -26,8 +26,8 @@ artifacts {
 }
 
 ext {
-	gdxVersion = "1.9.13"
-	guacamoleVersion = "0.2.4"
+	gdxVersion = "1.9.14"
+	guacamoleVersion = "0.3.0"
 }
 
 dependencies {
